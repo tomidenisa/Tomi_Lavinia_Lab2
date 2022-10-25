@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tomi_Lavinia_Lab2.Data;
 
@@ -11,9 +12,10 @@ using Tomi_Lavinia_Lab2.Data;
 namespace Tomi_Lavinia_Lab2.Migrations
 {
     [DbContext(typeof(Tomi_Lavinia_Lab2Context))]
-    partial class Tomi_Lavinia_Lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20221025145310_BookCategory")]
+    partial class BookCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
