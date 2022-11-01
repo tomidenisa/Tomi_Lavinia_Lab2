@@ -48,16 +48,19 @@ namespace Tomi_Lavinia_Lab2.Pages.Books
                     newBook.BookCategories.Add(catToAdd);
                 }
             }
-            if (await TryUpdateModelAsync<Book>(
-            newBook,
-            "Book",
-            i => i.Title, i => i.Author,
-            i => i.Price, i => i.PublishingDate, i => i.PublisherID))
-            {
-                _context.Book.Add(newBook);
-                await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
-            }
+            //   if (await TryUpdateModelAsync<Book>(
+            // newBook,
+            //"Book",
+            // i => i.Title, i => i.Author,
+            // i => i.Price, i => i.PublishingDate, i => i.PublisherID))
+            //{
+            //  _context.Book.Add(newBook);
+            //  await _context.SaveChangesAsync();
+            //  return RedirectToPage("./Index");
+            // }
+            _context.Book.Add(newBook);
+             await _context.SaveChangesAsync();
+             return RedirectToPage("./Index");
             PopulateAssignedCategoryData(_context, newBook);
             return Page();
         }
