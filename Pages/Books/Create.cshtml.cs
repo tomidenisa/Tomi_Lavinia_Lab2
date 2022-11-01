@@ -35,7 +35,7 @@ namespace Tomi_Lavinia_Lab2.Pages.Books
         public Book Book { get; set; }
         public async Task<IActionResult> OnPostAsync(string[] selectedCategories)
         {
-            var newBook = new Book();
+            var newBook = Book;
             if (selectedCategories != null)
             {
                 newBook.BookCategories = new List<BookCategory>();
