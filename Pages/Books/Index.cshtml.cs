@@ -31,7 +31,7 @@ namespace Tomi_Lavinia_Lab2.Pages.Books
 
         public async Task OnGetAsync(int? id, int? CategoryID, string sortOrder, string searchString)
         {
-            BookD = new BookData();
+            BookD =  new BookData();
             TitleSort = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             AuthorSort = String.IsNullOrEmpty(sortOrder) ? "author_desc" : "";
             CurrentFilter = searchString;
