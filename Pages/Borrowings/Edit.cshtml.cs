@@ -36,8 +36,8 @@ namespace Tomi_Lavinia_Lab2.Pages.Borrowings
                 return NotFound();
             }
             Borrowing = borrowing;
-           ViewData["BookID"] = new SelectList(_context.Book, "ID", "ID");
-           ViewData["MemberID"] = new SelectList(_context.Member, "ID", "ID");
+           ViewData["BookID"] = new SelectList(_context.Book, "Title", "Title");
+           ViewData["MemberID"] = new SelectList(_context.Member, "FullName", "FullName");
             return Page();
         }
 

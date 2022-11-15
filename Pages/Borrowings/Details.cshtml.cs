@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,8 @@ namespace Tomi_Lavinia_Lab2.Pages.Borrowings
         }
 
       public Borrowing Borrowing { get; set; }
+        public Book Book { get; set; }
+        public Member Member { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -36,6 +39,9 @@ namespace Tomi_Lavinia_Lab2.Pages.Borrowings
             else 
             {
                 Borrowing = borrowing;
+                var book = await _context.Book.FirstOrDefaultAsync(m => m.ID == borrowing.BookID);
+                var member = await _context.Member.FirstOrDefaultAsync(m => m.ID == borrowing.MemberID);
+                if (member == null) { return NotFound(); } else { Member = member; }
             }
             return Page();
         }
